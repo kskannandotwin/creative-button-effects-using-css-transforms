@@ -1,52 +1,62 @@
-@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
-
 body {
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #272727;
+  font-family: sans-serif;
+  overflow: hidden;
 }
 
-button {
-  border: none;
-  padding: 12px 40px;
-  background-color: #c47135;
+a {
+  text-decoration: none;
+  width: 160px;
+  height: 60px;
+  color: black;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 60px;
+  font-size: 25px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+a:hover {
   color: white;
-  font-family: "BenchNine";
-  font-size: 22px;
-  text-transform: uppercase;
-  cursor: pointer;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+a:hover::before {
+  opacity: 1;
+  transform: rotate(15deg);
+}
+
+a span {
+  color: transparent;
   position: relative;
 }
 
-button:before {
-  content: "";
+a span::before {
+  content: 'B';
   position: absolute;
-  width: 24px;
-  height: 24px;
-  top: -5px;
-  left: -5px;
-  border-top: 2px solid #c47135;
-  border-left: 2px solid #c47135;
-  transition: all 0.25s;
+  color: black;
+  transition: all 0.2s;
 }
 
-button:after {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  bottom: -5px;
-  right: -5px;
-  border-bottom: 2px solid #c47135;
-  border-right: 2px solid #c47135;
-  transition: all 0.25s;
-}
-
-button:hover:before,
-button:hover:after {
-  height: 100%;
-  width: 100%;
+a:hover span::before {
+  color: white;
+  font-size: 80px;
+  transform: translate(-65%, -10%) rotate(360deg);
 }
